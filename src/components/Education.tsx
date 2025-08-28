@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { GraduationCap, Award, Calendar, ExternalLink } from 'lucide-react';
+import { GraduationCap, Award, Calendar, ExternalLink, Medal, Trophy, Star, Crown } from 'lucide-react';
 
 const Education = () => {
   const education = [
@@ -14,45 +15,65 @@ const Education = () => {
 
   const certifications = [
     {
-      name: "Google Cloud Professional Data Engineer",
-      issuer: "Google Cloud",
-      year: "2023",
-      badge: "https://images.pexels.com/photos/1181233/pexels-photo-1181233.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
-      link: "#"
-    },
-    {
-      name: "AWS Certified Solutions Architect",
-      issuer: "Amazon Web Services",
-      year: "2023",
-      badge: "https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
-      link: "#"
-    },
-    {
-      name: "Microsoft Certified: Azure Data Engineer Associate",
-      issuer: "Microsoft",
+      name: "Database Programming with SQL",
+      issuer: "Oracle Academy",
       year: "2022",
-      badge: "https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
+      date: "20 Octubre 2022",
+      icon: Award,
+      color: "from-red-500 to-red-600",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg",
       link: "#"
     },
     {
-      name: "Snowflake SnowPro Core Certification",
-      issuer: "Snowflake",
+      name: "Database Foundations",
+      issuer: "Oracle Academy", 
+      year: "2022",
+      date: "22 Septiembre 2022",
+      icon: Medal,
+      color: "from-red-500 to-red-600",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg",
+      link: "#"
+    },
+    {
+      name: "Database Programming with PL/SQL",
+      issuer: "Oracle Academy",
+      year: "2022", 
+      date: "26 Noviembre 2022",
+      icon: Trophy,
+      color: "from-red-500 to-red-600",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg",
+      link: "#"
+    },
+    {
+      name: "Introduction to Cybersecurity",
+      issuer: "Cisco Networking Academy",
       year: "2024",
-      badge: "https://images.pexels.com/photos/1181298/pexels-photo-1181298.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
+      date: "31 Octubre 2024",
+      icon: Star,
+      color: "from-blue-500 to-blue-600",
+      logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cisco/cisco-original.svg",
       link: "#"
     },
     {
-      name: "Databricks Certified Data Engineer Associate",
-      issuer: "Databricks",
-      year: "2023",
-      badge: "https://images.pexels.com/photos/1181325/pexels-photo-1181325.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
+      name: "Acelerador de Carrera con Power BI",
+      issuer: "ZAKIDATA",
+      year: "2024",
+      date: "28 Noviembre 2024",
+      hours: "8 horas",
+      icon: Crown,
+      color: "from-yellow-500 to-yellow-600",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg",
       link: "#"
     },
     {
-      name: "Apache Spark Developer Certification",
-      issuer: "Databricks",
-      year: "2022",
-      badge: "https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
+      name: "Atención al Cliente por Medios Tecnológicos",
+      issuer: "SENA",
+      year: "2025",
+      date: "14 Marzo 2025",
+      hours: "48 horas",
+      icon: Medal,
+      color: "from-green-500 to-green-600",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Escudo-SENA.svg/1200px-Escudo-SENA.svg.png",
       link: "#"
     }
   ];
@@ -132,17 +153,27 @@ const Education = () => {
             {certifications.map((cert, index) => (
               <div key={index} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-start space-x-4">
-                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-green-500 dark:from-blue-400 dark:to-green-400 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Award className="w-8 h-8 text-white" />
+                  <div className={`w-16 h-16 bg-gradient-to-br ${cert.color} rounded-lg flex items-center justify-center flex-shrink-0 shadow-md`}>
+                    <cert.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2 line-clamp-2">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-2 leading-tight">
                       {cert.name}
                     </h4>
-                    <p className="text-blue-600 dark:text-blue-400 text-sm font-medium mb-1">
+                    <p className="text-blue-600 dark:text-blue-400 text-sm font-medium mb-2">
                       {cert.issuer}
                     </p>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-3">{cert.year}</p>
+                    <div className="space-y-1 text-sm text-gray-500 dark:text-gray-400 mb-3">
+                      <p className="flex items-center">
+                        <Calendar className="w-3 h-3 mr-1" />
+                        {cert.date}
+                      </p>
+                      {cert.hours && (
+                        <p className="text-green-600 dark:text-green-400 font-medium">
+                          Duración: {cert.hours}
+                        </p>
+                      )}
+                    </div>
                     <a
                       href={cert.link}
                       className="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 text-sm font-medium transition-colors"
@@ -157,29 +188,19 @@ const Education = () => {
           </div>
         </div>
 
-        {/* Continuous Learning */}
-        <div>
-          <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8 flex items-center">
-            <GraduationCap className="w-6 h-6 mr-3 text-blue-600 dark:text-blue-400" />
-            Aprendizaje Continuo
-          </h3>
+        {/* Stats */}
+        <div className="mt-16 grid md:grid-cols-3 gap-8 text-center">
           <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
-            <div className="grid md:grid-cols-3 gap-6">
-              {continuousLearning.map((course, index) => (
-                <div key={index} className="border-l-4 border-blue-600 dark:border-blue-400 pl-4">
-                  <h4 className="font-semibold text-gray-900 dark:text-white mb-2">
-                    {course.course}
-                  </h4>
-                  <p className="text-blue-600 dark:text-blue-400 text-sm font-medium">
-                    {course.platform}
-                  </p>
-                  <div className="flex justify-between items-center mt-2 text-sm text-gray-500 dark:text-gray-400">
-                    <span>{course.year}</span>
-                    <span>{course.hours}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400 mb-2">6</div>
+            <div className="text-gray-600 dark:text-gray-300">Certificaciones Obtenidas</div>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+            <div className="text-3xl font-bold text-green-600 dark:text-green-400 mb-2">5</div>
+            <div className="text-gray-600 dark:text-gray-300">Organizaciones Certificadoras</div>
+          </div>
+          <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+            <div className="text-3xl font-bold text-purple-600 dark:text-purple-400 mb-2">100+</div>
+            <div className="text-gray-600 dark:text-gray-300">Horas de Formación</div>
           </div>
         </div>
       </div>

@@ -3,12 +3,14 @@ import { Download, Mail, Linkedin, Github } from 'lucide-react';
 
 const Hero = () => {
   const handleDownloadCV = () => {
-    // Simulación de descarga de CV
     const link = document.createElement('a');
-    link.href = '#';
-    link.download = 'CV_Ingeniero_Datos.pdf';
+    link.href = 'https://drive.google.com/uc?export=download&id=1Kb1dzbOli2npQ52kdhbbXcvxp4b-B0ze';
+    link.download = 'CV_Yoriel_Carvajalino.pdf';
+    document.body.appendChild(link);
     link.click();
-  };
+    document.body.removeChild(link);
+};
+
 
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center pt-16 px-4 sm:px-6 lg:px-8 bg-slate-50 dark:bg-gray-900 transition-colors duration-300">
@@ -44,24 +46,23 @@ const Hero = () => {
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
           <button
             onClick={handleDownloadCV}
-            className="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
+            className="flex items-center space-x-2 bg-blue-600 dark:bg-blue-500 hover:bg-blue-700 dark:hover:bg-blue-600 text-white px-8 py-[0.375em] rounded-lg font-semibold text-xl transition-all duration-150 ease-in-out cursor-pointer
+            shadow-[inset_0_1px_0_0_rgba(59,130,246,0.8),0_1px_0_0_rgba(37,99,235,1),0_2px_0_0_rgba(29,78,216,1),0_4px_0_0_rgba(30,64,175,1),0_5px_0_0_rgba(30,58,138,1),0_6px_0_0_rgba(23,37,84,1),0_7px_0_0_rgba(15,23,42,1),0_7px_8px_0_rgba(51,65,85,0.4)]
+            dark:shadow-[inset_0_1px_0_0_rgba(96,165,250,0.8),0_1px_0_0_rgba(59,130,246,1),0_2px_0_0_rgba(37,99,235,1),0_4px_0_0_rgba(29,78,216,1),0_5px_0_0_rgba(30,64,175,1),0_6px_0_0_rgba(30,58,138,1),0_7px_0_0_rgba(23,37,84,1),0_7px_8px_0_rgba(71,85,105,0.4)]
+            active:translate-y-[0.225rem]
+            active:shadow-[inset_0_0.5px_0_0_rgba(59,130,246,0.8),0_0.5px_0_0_rgba(37,99,235,1),0_1px_0_0_rgba(29,78,216,1),0_2px_0_0_rgba(30,64,175,1),0_2px_0_0_rgba(30,58,138,1),0_3px_0_0_rgba(23,37,84,1),0_3.5px_0_0_rgba(15,23,42,1),0_3.5px_6px_0_rgba(51,65,85,0.4)]
+            dark:active:shadow-[inset_0_0.5px_0_0_rgba(96,165,250,0.8),0_0.5px_0_0_rgba(59,130,246,1),0_1px_0_0_rgba(37,99,235,1),0_2px_0_0_rgba(29,78,216,1),0_2px_0_0_rgba(30,64,175,1),0_3px_0_0_rgba(30,58,138,1),0_3.5px_0_0_rgba(23,37,84,1),0_3.5px_6px_0_rgba(71,85,105,0.4)]"
           >
             <Download size={20} />
             <span>Descargar CV</span>
           </button>
-          <a
-            href="mailto:juan.perez@email.com"
-            className="flex items-center space-x-2 border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
-          >
-            <Mail size={20} />
-            <span>Contactar</span>
-          </a>
+          
         </div>
 
         {/* Social Links */}
         <div className="flex justify-center space-x-6">
           <a
-            href="www.linkedin.com/in/yoriel-carvajalino"
+            href="https://www.linkedin.com/in/yoriel-carvajalino"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 hover:scale-110 transform"
