@@ -82,12 +82,12 @@ const TechStack = () => {
           </h3>
           <div className="max-w-4xl mx-auto space-y-6">
             {[
-              { skill: "Python & SQL", level: 95 },
-              { skill: "Apache Spark & Big Data", level: 90 },
-              { skill: "Cloud Platforms (GCP/AWS)", level: 85 },
-              { skill: "Power BI & Data Visualization", level: 92 },
-              { skill: "ETL/ELT Pipelines", level: 88 },
-              { skill: "Data Modeling", level: 87 }
+              { skill: "Python & SQL", level: 75 },
+              { skill: "Apache Spark & Big Data", level: 60 },
+              { skill: "Cloud Platforms (GCP/AWS)", level: 70 },
+              { skill: "Power BI & Data Visualization", level: 85 },
+              { skill: "ETL/ELT Pipelines", level: 70 },
+              { skill: "Data Modeling", level: 70 }
             ].map((item, index) => (
               <div key={index} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
                 <div className="flex justify-between mb-2">

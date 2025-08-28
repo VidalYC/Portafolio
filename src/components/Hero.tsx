@@ -16,13 +16,13 @@ const Hero = () => {
         {/* Profile Image */}
         <div className="mb-8">
           <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-blue-600 to-green-500 flex items-center justify-center text-white text-4xl font-bold shadow-xl">
-            JD
+            YC
           </div>
         </div>
 
         {/* Name and Titles */}
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
-          Juan David Pérez
+          Yoriel Carvajalino
         </h1>
         <div className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 space-y-2">
           <p>Ingeniero de Datos</p>
@@ -61,7 +61,7 @@ const Hero = () => {
         {/* Social Links */}
         <div className="flex justify-center space-x-6">
           <a
-            href="https://linkedin.com/in/juan-perez"
+            href="www.linkedin.com/in/yoriel-carvajalino"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 hover:scale-110 transform"
@@ -69,7 +69,7 @@ const Hero = () => {
             <Linkedin size={24} />
           </a>
           <a
-            href="https://github.com/juan-perez"
+            href="https://github.com/VidalYC"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors duration-200 hover:scale-110 transform"
@@ -77,7 +77,7 @@ const Hero = () => {
             <Github size={24} />
           </a>
           <a
-            href="mailto:juan.perez@email.com"
+            href="mailto:yorielvidal@gmail.com"
             className="text-gray-600 dark:text-gray-400 hover:text-green-600 dark:hover:text-green-400 transition-colors duration-200 hover:scale-110 transform"
           >
             <Mail size={24} />

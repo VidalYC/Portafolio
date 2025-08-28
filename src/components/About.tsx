@@ -39,7 +39,7 @@ const About = () => {
           {/* Text Content */}
           <div className="space-y-6">
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Soy un Ingeniero de Datos con más de <strong>5 años de experiencia</strong> 
+              Soy un Ingeniero de Datos con más de <strong>2 años de experiencia</strong> 
               especializándome en la construcción de arquitecturas de datos escalables 
               y soluciones de Business Intelligence que impulsan la toma de decisiones estratégicas.
             </p>
