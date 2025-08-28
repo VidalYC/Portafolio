@@ -5,17 +5,10 @@ const Education = () => {
   const education = [
     {
       degree: "Ingeniería de Sistemas",
-      institution: "Universidad Nacional de Colombia",
-      year: "2015 - 2019",
+      institution: "Universidad Popular del Cesar",
+      year: "2015 - Actualidad",
       description: "Enfoque en desarrollo de software, bases de datos y arquitecturas distribuidas",
       grade: "Magna Cum Laude"
-    },
-    {
-      degree: "Maestría en Ciencia de Datos",
-      institution: "Universidad de los Andes",
-      year: "2020 - 2022",
-      description: "Especialización en machine learning, big data y análisis predictivo",
-      grade: "Distinción Académica"
     }
   ];
 

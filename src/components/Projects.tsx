@@ -76,13 +76,9 @@ const Projects = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            Proyectos Destacados
+            Proyectos Recientes
           </h2>
           <div className="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Una selección de proyectos que demuestran mi experiencia en ingeniería de datos, 
-            business intelligence y soluciones cloud escalables
-          </p>
         </div>
 
         <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8">
@@ -158,20 +154,6 @@ const Projects = () => {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-12">
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-            ¿Interesado en ver más proyectos o discutir una colaboración?
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
-          >
-            <span>Hablemos de tu proyecto</span>
-            <ExternalLink size={18} />
-          </a>
         </div>
       </div>
     </section>

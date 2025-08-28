@@ -1,43 +1,95 @@
-import React from 'react';
+import { 
+  Database, Cloud, BarChart3, Code, Server, 
+  Cpu, Zap, Globe, Monitor, FileSpreadsheet,
+  GitBranch, Layers, Search, Activity, Package,
+  Workflow, HardDrive, LineChart, PieChart
+} from 'lucide-react';
 
 const TechStack = () => {
   const technologies = {
     "Lenguajes": [
-      { name: "Python", color: "bg-yellow-500" },
-      { name: "SQL", color: "bg-blue-600" },
-      { name: "R", color: "bg-blue-700" },
-      { name: "Scala", color: "bg-red-600" }
+      { name: "Python", color: "text-yellow-500", icon: Code },
+      { name: "SQL", color: "text-blue-600", icon: Database }
     ],
     "Big Data & Streaming": [
-      { name: "Apache Spark", color: "bg-orange-500" },
-      { name: "Apache Kafka", color: "bg-gray-800" },
-      { name: "Trino/Presto", color: "bg-purple-600" },
-      { name: "Hadoop", color: "bg-yellow-600" }
+      { name: "Apache Spark", color: "text-orange-500", icon: Zap },
+      { name: "Apache Kafka", color: "text-gray-800", icon: Activity },
+      { name: "Trino/Presto", color: "text-purple-600", icon: Search },
+      { name: "Hadoop", color: "text-yellow-600", icon: Server }
     ],
     "Cloud Platforms": [
-      { name: "Google Cloud Platform", color: "bg-blue-500" },
-      { name: "Amazon AWS", color: "bg-orange-400" },
-      { name: "Microsoft Azure", color: "bg-blue-700" },
-      { name: "Snowflake", color: "bg-blue-400" }
+      { name: "Google Cloud Platform", color: "text-blue-500", icon: Cloud },
+      { name: "Amazon AWS", color: "text-orange-400", icon: Cloud }
     ],
     "BI & Visualization": [
-      { name: "Power BI", color: "bg-yellow-500" },
-      { name: "Looker Studio", color: "bg-blue-500" },
-      { name: "QlikSense", color: "bg-green-600" },
-      { name: "Tableau", color: "bg-blue-600" }
+      { name: "Power BI", color: "text-yellow-500", icon: PieChart },
+      { name: "Looker Studio", color: "text-blue-500", icon: LineChart }
     ],
     "Databases": [
-      { name: "PostgreSQL", color: "bg-blue-700" },
-      { name: "Oracle", color: "bg-red-600" },
-      { name: "MongoDB", color: "bg-green-600" },
-      { name: "Redis", color: "bg-red-500" }
+      { name: "PostgreSQL", color: "text-blue-700", icon: Database },
+      { name: "Oracle", color: "text-red-600", icon: Database },
+      { name: "MongoDB", color: "text-green-600", icon: Database }
     ],
     "Microsoft Stack": [
-      { name: "SSIS", color: "bg-blue-600" },
-      { name: "SSAS", color: "bg-blue-700" },
-      { name: "SSRS", color: "bg-blue-800" },
-      { name: "SQL Server", color: "bg-red-700" }
+      { name: "SSIS", color: "text-blue-600", icon: Workflow },
+      { name: "SSAS", color: "text-blue-700", icon: Cpu },
+      { name: "SSRS", color: "text-blue-800", icon: FileSpreadsheet },
+      { name: "SQL Server", color: "text-red-700", icon: Database }
     ]
+  };
+
+  // Redistribuimos las tecnologías en 3 bandas más equilibradas
+  const allTechnologies = Object.values(technologies).flat();
+  
+  // Banda 1: Lenguajes + Cloud (4 items)
+  const band1 = [
+    ...technologies["Lenguajes"], 
+    ...technologies["Databases"],
+    ...technologies["Cloud Platforms"]
+  ];
+  
+  // Banda 2: Big Data + BI (6 items)
+  const band2 = [
+    ...technologies["Big Data & Streaming"], 
+    ...technologies["Microsoft Stack"],
+    ...technologies["BI & Visualization"]
+  ];
+
+  const TechBand = ({ 
+    techs, 
+    direction = 'left', 
+    speed = 'slow' 
+  }: { 
+    techs: Array<{name: string; color: string; icon: any}>;
+    direction?: 'left' | 'right';
+    speed?: 'slow' | 'medium' | 'fast';
+  }) => {
+    const speedClass = speed === 'fast' ? 'animate-scroll-fast' : speed === 'medium' ? 'animate-scroll-medium' : 'animate-scroll-slow';
+    const directionClass = direction === 'right' ? 'animate-scroll-reverse' : '';
+    
+    return (
+      <div className="relative overflow-hidden py-3">
+        {/* Efecto de desvanecimiento en los bordes */}
+        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-slate-50 to-transparent dark:from-gray-900 z-10"></div>
+        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-slate-50 to-transparent dark:from-gray-900 z-10"></div>
+        
+        <div className={`flex space-x-8 whitespace-nowrap ${speedClass} ${directionClass}`}>
+          {/* Duplicamos las tecnologías para crear el loop infinito */}
+          {[...techs, ...techs, ...techs].map((tech, index) => {
+            const IconComponent = tech.icon;
+            return (
+              <div
+                key={index}
+                className="flex items-center space-x-3 px-6 py-4 bg-white/70 dark:bg-gray-800/70 backdrop-blur-sm rounded-full hover:bg-white/90 dark:hover:bg-gray-700/90 transition-all duration-300 hover:scale-105 border border-gray-200/50 dark:border-gray-600/50 shadow-lg hover:shadow-xl"
+              >
+                <IconComponent className={`w-5 h-5 ${tech.color}`} />
+                <span className="text-gray-800 dark:text-gray-200 font-medium text-sm">{tech.name}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -53,58 +105,149 @@ const TechStack = () => {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {Object.entries(technologies).map(([category, techs]) => (
-            <div key={category} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
-                <div className="w-1 h-6 bg-blue-600 mr-3"></div>
-                {category}
-              </h3>
-              <div className="grid grid-cols-2 gap-3">
-                {techs.map((tech, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center space-x-3 p-3 bg-slate-50 dark:bg-gray-700 rounded-lg hover:bg-slate-100 dark:hover:bg-gray-600 transition-colors duration-200 group"
-                  >
-                    <div className={`w-3 h-3 rounded-full ${tech.color} group-hover:scale-110 transition-transform duration-200`}></div>
-                    <span className="text-gray-700 dark:text-gray-300 font-medium">{tech.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+        {/* Bandas animadas */}
+        <div className="space-y-2 mb-16">
+          <TechBand techs={band1} direction="left" speed="medium" />
+          <TechBand techs={band2} direction="right" speed="medium" />
         </div>
 
         {/* Competency Levels */}
-        <div className="mt-16">
-          <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-8 text-center">
-            Nivel de Competencia
-          </h3>
-          <div className="max-w-4xl mx-auto space-y-6">
-            {[
-              { skill: "Python & SQL", level: 75 },
-              { skill: "Apache Spark & Big Data", level: 60 },
-              { skill: "Cloud Platforms (GCP/AWS)", level: 70 },
-              { skill: "Power BI & Data Visualization", level: 85 },
-              { skill: "ETL/ELT Pipelines", level: 70 },
-              { skill: "Data Modeling", level: 70 }
-            ].map((item, index) => (
-              <div key={index} className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-sm">
-                <div className="flex justify-between mb-2">
-                  <span className="font-medium text-gray-900 dark:text-white">{item.skill}</span>
-                  <span className="text-blue-600 dark:text-blue-400 font-semibold">{item.level}%</span>
-                </div>
-                <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                  <div
-                    className="bg-gradient-to-r from-blue-600 to-green-500 h-2 rounded-full transition-all duration-1000 ease-out"
-                    style={{ width: `${item.level}%` }}
-                  ></div>
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Nivel de Competencia
+            </h3>
+            <div className="w-20 h-1 bg-blue-600 mx-auto mb-4"></div>
+            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              Mi experiencia y dominio en las principales tecnologías que utilizo
+            </p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-8">
+              
+              {/* Tarjeta 1: Core Skills */}
+              <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
+                
+                <div className="space-y-6">
+                  {[
+                    { skill: "Python & SQL", percentage: 85, icon: Code },
+                    { skill: "Power BI & Visualización", percentage: 90, icon: PieChart },
+                    { skill: "ETL/ELT Pipelines", percentage: 75, icon: Workflow }
+                  ].map((item, index) => (
+                    <div key={index} className="group">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <item.icon className="w-5 h-5 text-white" />
+                          </div>
+                          <span className="font-semibold text-gray-900 dark:text-white">
+                            {item.skill}
+                          </span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-blue-600 dark:text-blue-400 font-semibold text-lg">
+                            {item.percentage}%
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                        <div
+                          className="h-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-full transition-all duration-1000 ease-out"
+                          style={{ width: `${item.percentage}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
                 </div>
               </div>
-            ))}
+
+              {/* Tarjeta 2: Advanced Skills */}
+              <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700">
+                
+                <div className="space-y-6">
+                  {[
+                    { skill: "Apache Spark & Big Data", percentage: 70, icon: Zap },
+                    { skill: "Cloud Platforms (GCP/AWS)", percentage: 75, icon: Cloud },
+                    { skill: "Data Modeling", percentage: 80, icon: Database }
+                  ].map((item, index) => (
+                    <div key={index} className="group">
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                            <item.icon className="w-5 h-5 text-white" />
+                          </div>
+                          <span className="font-semibold text-gray-900 dark:text-white">
+                            {item.skill}
+                          </span>
+                        </div>
+                        <div className="text-right">
+                          <span className="text-blue-600 dark:text-blue-400 font-semibold text-lg">
+                            {item.percentage}%
+                          </span>
+                        </div>
+                      </div>
+                      
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3">
+                        <div
+                          className="h-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-full transition-all duration-1000 ease-out"
+                          style={{ width: `${item.percentage}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      {/* CSS para las animaciones */}
+      <style>{`
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+
+        .animate-scroll-slow {
+          animation: scroll-left 60s linear infinite;
+        }
+
+        .animate-scroll-medium {
+          animation: scroll-left 45s linear infinite;
+        }
+
+        .animate-scroll-fast {
+          animation: scroll-left 30s linear infinite;
+        }
+
+        .animate-scroll-reverse {
+          animation: scroll-right 45s linear infinite;
+        }
+
+        /* Pausar animación al hover para mejor UX */
+        .animate-scroll-slow:hover,
+        .animate-scroll-medium:hover,
+        .animate-scroll-fast:hover,
+        .animate-scroll-reverse:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 };

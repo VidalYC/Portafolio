@@ -1,30 +1,6 @@
 import React from 'react';
-import { Database, BarChart3, Cloud, Code } from 'lucide-react';
 
 const About = () => {
-  const highlights = [
-    {
-      icon: Database,
-      title: "ETL & Data Warehousing",
-      description: "Diseño e implementación de pipelines robustos de datos"
-    },
-    {
-      icon: BarChart3,
-      title: "Business Intelligence",
-      description: "Dashboards y reportes estratégicos para toma de decisiones"
-    },
-    {
-      icon: Cloud,
-      title: "Cloud Computing",
-      description: "Soluciones escalables en GCP, AWS y Azure"
-    },
-    {
-      icon: Code,
-      title: "Data Science",
-      description: "Análisis predictivo y machine learning aplicado"
-    }
-  ];
-
   return (
     <section id="about" className="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -39,23 +15,22 @@ const About = () => {
           {/* Text Content */}
           <div className="space-y-6">
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Soy un Ingeniero de Datos con más de <strong>2 años de experiencia</strong> 
-              especializándome en la construcción de arquitecturas de datos escalables 
-              y soluciones de Business Intelligence que impulsan la toma de decisiones estratégicas.
+              🌟 Soy estudiante de Ingeniería de Sistemas <strong>(9.º semestre)</strong> 
+              en la Universidad Popular del Cesar, con gran interés y formación 
+              en el ecosistema de datos moderno 📊.
             </p>
             
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Mi formación en <strong>Ingeniería de Sistemas</strong> y mis certificaciones en 
-              plataformas cloud me han permitido liderar proyectos de migración de datos, 
-              implementar data lakes modernos y crear dashboards interactivos que transforman 
-              datos complejos en insights accionables.
+              🚀 Me apasiona transformar datos en conocimiento útil, desde la ingesta y 
+              transformación hasta la visualización y análisis predictivo 🤖. Durante mi formación 
+              he fortalecido mis competencias en programación, bases de datos, BI y herramientas cloud, 
+              lo que me ha permitido desarrollar proyectos académicos y personales orientados a la analítica de datos y 
+              la inteligencia de negocios.
             </p>
 
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              Me apasiona el ecosistema de datos moderno, desde la ingesta y transformación 
-              hasta la visualización y análisis predictivo. Constantemente exploro nuevas 
-              tecnologías como <strong>Apache Spark, Kafka, Trino</strong> y herramientas 
-              cloud-native para optimizar el rendimiento y escalabilidad de las soluciones.
+              💡 Mi objetivo es seguir aprendiendo y crecer como Ingeniero de Datos, 
+              aportando soluciones innovadoras que impulsen la toma de decisiones estratégicas en las organizaciones.
             </p>
 
             <div className="pt-4">
@@ -78,24 +53,84 @@ const About = () => {
             </div>
           </div>
 
-          {/* Highlights Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {highlights.map((item, index) => (
-              <div
-                key={index}
-                className="p-6 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-700 dark:to-gray-600 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="w-12 h-12 bg-blue-600 dark:bg-blue-500 rounded-lg flex items-center justify-center mb-4">
-                  <item.icon className="w-6 h-6 text-white" />
-                </div>
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                  {item.title}
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm">
-                  {item.description}
-                </p>
+          {/* Profile Image */}
+          <div className="flex justify-center lg:justify-end">
+            <div 
+              className="relative group cursor-pointer"
+              style={{
+                ['--wave-duration' as any]: '3s',
+              }}
+            >
+              {/* Multiple wave rings with different delays and sizes */}
+              <div className="absolute inset-0 rounded-full border-2 border-blue-400/30 opacity-0 group-hover:opacity-100 pointer-events-none animate-wave-1"></div>
+              <div className="absolute inset-0 rounded-full border-2 border-purple-400/25 opacity-0 group-hover:opacity-100 pointer-events-none animate-wave-2"></div>
+              <div className="absolute inset-0 rounded-full border-2 border-cyan-400/20 opacity-0 group-hover:opacity-100 pointer-events-none animate-wave-3"></div>
+              <div className="absolute inset-0 rounded-full border-2 border-indigo-400/15 opacity-0 group-hover:opacity-100 pointer-events-none animate-wave-4"></div>
+              
+              {/* Continuous wave effect even without hover */}
+              <div className="absolute inset-0 rounded-full border border-white/10 animate-wave-continuous"></div>
+              
+              {/* Subtle floating shadow */}
+              <div className="absolute inset-0 bg-black/20 rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity duration-500 animate-pulse"></div>
+              
+              {/* Main image container */}
+              <div className="relative w-96 h-96 rounded-full overflow-hidden shadow-2xl border-4 border-white dark:border-gray-800 transform group-hover:scale-105 group-hover:-translate-y-2 transition-all duration-500 ease-out">
+                <img
+                  src="/imageme.jpg"
+                  alt="Perfil profesional"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                />
               </div>
-            ))}
+              
+              {/* CSS for wave animations */}
+              <style>{`
+                @keyframes wave-expand {
+                  0% {
+                    transform: scale(1);
+                    opacity: 1;
+                  }
+                  100% {
+                    transform: scale(1.4);
+                    opacity: 0;
+                  }
+                }
+                
+                @keyframes wave-continuous {
+                  0%, 100% {
+                    transform: scale(1);
+                    opacity: 0.1;
+                  }
+                  50% {
+                    transform: scale(1.1);
+                    opacity: 0.3;
+                  }
+                }
+                
+                .animate-wave-1 {
+                  animation: wave-expand 2s ease-out infinite;
+                  animation-delay: 0s;
+                }
+                
+                .animate-wave-2 {
+                  animation: wave-expand 2s ease-out infinite;
+                  animation-delay: 0.5s;
+                }
+                
+                .animate-wave-3 {
+                  animation: wave-expand 2s ease-out infinite;
+                  animation-delay: 1s;
+                }
+                
+                .animate-wave-4 {
+                  animation: wave-expand 2s ease-out infinite;
+                  animation-delay: 1.5s;
+                }
+                
+                .animate-wave-continuous {
+                  animation: wave-continuous 4s ease-in-out infinite;
+                }
+              `}</style>
+            </div>
           </div>
         </div>
       </div>
