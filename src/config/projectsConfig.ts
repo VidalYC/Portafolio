@@ -3,15 +3,17 @@ import { RepoInfo } from "../types/project";
 export const REPOS = [
   { owner: "VidalYC", name: "TrinoLab" },
   { owner: "VidalYC", name: "Hackaton_2025" },
-  { owner: "VidalYC", name: "Gestor_de_Tareas" }
+  { owner: "VidalYC", name: "Gestor_de_Tareas" },
+  { owner: "VidalYC", name: "frontend" },
   // FinancyBank se agrega manualmente abajo
 ];
 
 export const fallbackImages: Record<string, string> = {
-  TrinoLab: "/public/trino.png",
-  Hackaton_2025: "/public/hackton.png",
-  FinancyBank: "/public/bank.jpg",
-  Gestor_de_Tareas: "/public/gestor.png",
+  TrinoLab: "/trino.png",
+  Hackaton_2025: "/Hackton.png",
+  FinancyBank: "/bank.jpg",
+  Gestor_de_Tareas: "/gestor.png",
+  frontend: "/salon.png",
 };
 
 export const manualData: Record<string, Partial<RepoInfo>> = {
@@ -26,6 +28,11 @@ export const manualData: Record<string, Partial<RepoInfo>> = {
   Gestor_de_Tareas: {
     description: "Aplicación web para la gestión de tareas y proyectos colaborativos, con frontend en Vue y backend en Python. Permite crear, editar, y visualizar tareas en tiempo real.",
     technologies: ["Vue", "Python", "JavaScript", "HTML", "Mako"]
+  },
+  frontend: {
+    title: "Salon de Belleza",
+    description: "Frontend modular desarrollado con Vue y JavaScript. Incluye múltiples vistas, componentes reutilizables y arquitectura escalable.",
+    technologies: ["Vue", "JavaScript"]
   }
 };
 

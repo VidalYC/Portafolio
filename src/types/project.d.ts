@@ -13,6 +13,7 @@ export interface ProjectProps {
 export type RepoInfo = {
   id: number;
   name: string;
+  title?: string;
   description: string;
   html_url: string;
   language: string;

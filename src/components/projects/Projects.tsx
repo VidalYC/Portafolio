@@ -2,6 +2,7 @@ import React from "react";
 import ProjectCard from "./ProjectCard";
 import { useProjects } from "../../hooks/useProjects";
 import { fallbackImages } from "../../config/projectsConfig";
+import { manualData } from "../../config/projectsConfig";
 
 const Projects: React.FC = () => {
   const { projects, loading } = useProjects();
@@ -27,7 +28,7 @@ const Projects: React.FC = () => {
               <ProjectCard
                 key={project.id}
                 id={project.id}
-                title={project.name}
+                title={manualData[project.name]?.title || project.name}
                 description={project.description ?? "Sin descripción"}
                 image={getProjectImage(project.name)}
                 technologies={project.technologies || [project.language || "No especificado"]}
