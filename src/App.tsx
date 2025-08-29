@@ -1,13 +1,13 @@
 import React from 'react';
 import { useDarkMode } from './hooks/useDarkMode';
-import Header from './components/Header';
-import Hero from './components/Hero';
-import About from './components/About';
-import TechStack from './components/TechStack';
-import Projects from './components/Projects';
-import Education from './components/Education';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Header from './components/header/Header';
+import Hero from './components/hero/Hero';
+import About from './components/about/About';
+import TechStack from './components/techStack/TechStack';
+import Projects from './components/projects/Projects';
+import Education from './components/education/Education';
+import Contact from './components/contact/Contact';
+import Footer from './components/footer/Footer';
 
 function App() {
   const { isDarkMode, toggleDarkMode } = useDarkMode();

@@ -1,0 +1,41 @@
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-slow {
+  animation: scroll-left 60s linear infinite;
+}
+
+.animate-scroll-medium {
+  animation: scroll-left 45s linear infinite;
+}
+
+.animate-scroll-fast {
+  animation: scroll-left 30s linear infinite;
+}
+
+.animate-scroll-reverse {
+  animation: scroll-right 45s linear infinite;
+}
+
+/* Hover pausa */
+.animate-scroll-slow:hover,
+.animate-scroll-medium:hover,
+.animate-scroll-fast:hover,
+.animate-scroll-reverse:hover {
+  animation-play-state: paused;
+}
