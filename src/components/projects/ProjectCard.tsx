@@ -24,7 +24,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
   category,
 }) => {
   return (
-    <div className="bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group">
+    <div className="bg-white dark:bg-gray-700 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden group max-h-[340px] hover:max-h-[600px]">
       {/* Imagen */}
       <div className="relative overflow-hidden">
         <img
@@ -49,12 +49,14 @@ const ProjectCard: React.FC<ProjectProps> = ({
         <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {title}
         </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-3">{description}</p>
+        <p className="text-gray-600 dark:text-gray-300 mb-4 group-hover:line-clamp-none line-clamp-3 transition-all duration-300">
+          {description}
+        </p>
 
         {/* Tecnologías */}
         <div className="mb-4">
           <div className="flex flex-wrap gap-2">
-            {technologies.slice(0, 3).map((tech, index) => (
+            {technologies.map((tech, index) => (
               <span
                 key={index}
                 className="px-2 py-1 bg-slate-100 dark:bg-gray-600 text-slate-700 dark:text-gray-300 rounded text-xs font-medium"
@@ -62,11 +64,6 @@ const ProjectCard: React.FC<ProjectProps> = ({
                 {tech}
               </span>
             ))}
-            {technologies.length > 3 && (
-              <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded text-xs font-medium">
-                +{technologies.length - 3} más
-              </span>
-            )}
           </div>
         </div>
 
