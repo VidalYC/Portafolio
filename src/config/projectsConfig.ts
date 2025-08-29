@@ -20,7 +20,7 @@ export const fallbackImages: Record<string, string> = {
 export const projectDemos: Record<string, string> = {
   "Gestor_de_Tareas": "https://gestor-de-tareas-zeta.vercel.app",
   "frontend": "https://frontend-alpha-rust.vercel.app",
-  "Hackaton_2025": "https://hackaton-2025-sandy.vercel.app",
+  "Hackaton_2025": "https://energy-analitics-2025.vercel.app",
 };
 
 export const manualData: Record<string, Partial<RepoInfo>> = {
@@ -33,6 +33,7 @@ export const manualData: Record<string, Partial<RepoInfo>> = {
     technologies: ["TypeScript", "Python", "JavaScript", "React", "FastAPI"]
   },
   Gestor_de_Tareas: {
+    title: "Gestor de Tareas",
     description: "Aplicación web para la gestión de tareas y proyectos colaborativos, con frontend en Vue y backend en Python. Permite crear, editar, y visualizar tareas en tiempo real.",
     technologies: ["Vue", "Python", "JavaScript", "HTML", "Mako"]
   },
