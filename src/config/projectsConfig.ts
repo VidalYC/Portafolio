@@ -18,7 +18,7 @@ export const fallbackImages: Record<string, string> = {
 
 // URLs de demos desplegados en Vercel
 export const projectDemos: Record<string, string> = {
-  "Gestor_de_Tareas": "https://gestor-de-tareas-zeta.vercel.app",
+  "Gestor_de_Tareas": "https://gestor-de-tareas-simple.vercel.app",
   "frontend": "https://frontend-alpha-rust.vercel.app",
   "Hackaton_2025": "https://energy-analitics-2025.vercel.app",
 };
@@ -29,6 +29,7 @@ export const manualData: Record<string, Partial<RepoInfo>> = {
     technologies: ["JavaScript", "Docker"]
   },
   Hackaton_2025: {
+    title: "EnergyAnalytics",
     description: "Proyecto desarrollado para Hackaton 2025, incluye funcionalidades web y machine learning, integración entre frontend y backend con TypeScript y Python.",
     technologies: ["TypeScript", "Python", "JavaScript", "React", "FastAPI"]
   },
