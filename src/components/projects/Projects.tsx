@@ -1,14 +1,17 @@
 import React from "react";
 import ProjectCard from "./ProjectCard";
 import { useProjects } from "../../hooks/useProjects";
-import { fallbackImages } from "../../config/projectsConfig";
-import { manualData } from "../../config/projectsConfig";
+import { fallbackImages, projectDemos, manualData } from "../../config/projectsConfig";
 
 const Projects: React.FC = () => {
   const { projects, loading } = useProjects();
 
   const getProjectImage = (name: string) =>
     fallbackImages[name] || "/projects/default.png";
+
+  const getProjectDemo = (name: string) => projectDemos[name];
+
+  const hasLiveDemo = (name: string) => Boolean(projectDemos[name]);
 
   return (
     <section id="projects" className="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
@@ -33,9 +36,10 @@ const Projects: React.FC = () => {
                 image={getProjectImage(project.name)}
                 technologies={project.technologies || [project.language || "No especificado"]}
                 icon={() => <></>}
-                demo={project.html_url}
+                demo={getProjectDemo(project.name)}
                 github={project.html_url}
                 category={project.owner.login === "VidalYC" ? "Personal" : "Educativo"}
+                hasLiveDemo={hasLiveDemo(project.name)}
               />
             ))}
           </div>

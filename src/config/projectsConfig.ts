@@ -16,6 +16,13 @@ export const fallbackImages: Record<string, string> = {
   frontend: "/salon.png",
 };
 
+// URLs de demos desplegados en Vercel
+export const projectDemos: Record<string, string> = {
+  "Gestor_de_Tareas": "https://gestor-de-tareas-zeta.vercel.app",
+  "frontend": "https://frontend-alpha-rust.vercel.app",
+  "Hackaton_2025": "https://hackaton-2025-sandy.vercel.app",
+};
+
 export const manualData: Record<string, Partial<RepoInfo>> = {
   TrinoLab: {
     description: "Laboratorio de integración y manipulación de datos usando JavaScript para procesar, visualizar y exportar información entre diferentes fuentes.",
@@ -31,7 +38,7 @@ export const manualData: Record<string, Partial<RepoInfo>> = {
   },
   frontend: {
     title: "Salon de Belleza",
-    description: "Frontend modular desarrollado con Vue y JavaScript. Incluye múltiples vistas, componentes reutilizables y arquitectura escalable.",
+    description: "Frontend modular desarrollado con Vue y JavaScript. Incluye múltiples vistas, componentes reutilizables y arquitectura escalable para gestión de servicios de belleza.",
     technologies: ["Vue", "JavaScript"]
   }
 };

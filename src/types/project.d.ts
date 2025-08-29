@@ -5,9 +5,10 @@ export interface ProjectProps {
   image: string;
   technologies: string[];
   icon: React.ElementType;
-  demo: string;
+  demo?: string;
   github: string;
   category: string;
+  hasLiveDemo: boolean;
 }
 
 export type RepoInfo = {
