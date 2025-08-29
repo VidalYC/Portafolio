@@ -1,0 +1,22 @@
+export interface ProjectProps {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  icon: React.ElementType;
+  demo: string;
+  github: string;
+  category: string;
+}
+
+export type RepoInfo = {
+  id: number;
+  name: string;
+  description: string;
+  html_url: string;
+  language: string;
+  owner: { login: string };
+  topics?: string[];
+  technologies?: string[];
+};
