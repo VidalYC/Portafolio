@@ -44,16 +44,16 @@ const TechStack = () => {
           <div className="grid md:grid-cols-2 gap-8">
             <CompetencyCard
               items={[
-                { skill: "Python & SQL", percentage: 85, icon: Code },
-                { skill: "Power BI & Visualización", percentage: 90, icon: PieChart },
-                { skill: "ETL/ELT Pipelines", percentage: 75, icon: Workflow },
+                { skill: "Python & SQL", percentage: 65, icon: Code },
+                { skill: "Power BI & Visualización", percentage: 70, icon: PieChart },
+                { skill: "ETL/ELT Pipelines", percentage: 50, icon: Workflow },
               ]}
             />
             <CompetencyCard
               items={[
-                { skill: "Apache Spark & Big Data", percentage: 70, icon: Zap },
-                { skill: "Cloud Platforms (GCP/AWS)", percentage: 75, icon: Cloud },
-                { skill: "Data Modeling", percentage: 80, icon: Database },
+                { skill: "Apache Spark & Big Data", percentage:60, icon: Zap },
+                { skill: "Cloud Platforms (GCP/AWS)", percentage: 50, icon: Cloud },
+                { skill: "Data Modeling", percentage: 55, icon: Database },
               ]}
             />
           </div>
